@@ -1,0 +1,29 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. FIZZ-BUZZ.
+DATA DIVISION.
+    WORKING-STORAGE SECTION.
+    01  I                   PIC 999.
+    01  THREE               PIC 999V99.
+    01  THREE-CMP REDEFINES THREE.
+        03  THREE-INT       PIC 999.
+        03  THREE-DEC       PIC 99.
+    01  FIVE                PIC 999V99.
+    01  FIVE-CMP REDEFINES FIVE. 
+        03  FIVE-INT        PIC 999.
+        03  FIVE-DEC        PIC 99.
+PROCEDURE DIVISION.
+    PERFORM VARYING I FROM 1 BY 1
+    UNTIL I > 100
+        COMPUTE THREE =  I / 3
+        COMPUTE FIVE = I / 5
+        IF  THREE-DEC = ZEROES AND FIVE-DEC = ZEROES
+            DISPLAY 'FizzBuzz'
+        ELSE IF THREE-DEC = ZEROES
+            DISPLAY 'Fizz'
+        ELSE IF FIVE-DEC = ZEROES
+            DISPLAY 'Buzz'
+        ELSE
+            DISPLAY I
+        END-IF
+    END-PERFORM.
+STOP RUN.
